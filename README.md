@@ -4,12 +4,10 @@ STREAMer: Benchmarking remote volatile and non-volatile memory bandwidth
 ## STREAMer help
 ```
 $ python3 STREAMer.py --help
-usage: STREAMer.py [-h] [--noHT] [--HT] [--Socket0] [--Socket1]
-                   [--Socket0Socket1] [--Socket0DDR4] [--Socket1DDR4]
-                   [--CXLDDR4] [--Socket0DDR5] [--Socket1DDR5] [--CXLDAX]
-                   [--Socket0DDR4DAX] [--Socket1DDR4DAX] [--Socket0DDR5DAX]
-                   [--Socket1DDR5DAX] [--Close] [--Spread] [--noFT] [--FT]
-                   [--DAX_Path DAX_PATH]
+usage: STREAMer.py [-h] [--noHT | --HT]
+                   [--Socket0 | --Socket1 | --Socket0Socket1]
+                   [--Socket0DDR4 | --Socket1DDR4 | --CXLDDR4 | --Socket0DDR5 | --Socket1DDR5 | --CXLDAX | --Socket0DDR4DAX | --Socket1DDR4DAX | --Socket0DDR5DAX | --Socket1DDR5DAX]
+                   [--Close | --Spread] [--noFT | --FT] [--DAX_Path DAX_PATH]
 
 Program Options
 
