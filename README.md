@@ -1,6 +1,7 @@
 # STREAMer
 STREAMer: Benchmarking remote volatile and non-volatile memory bandwidth
 
+# STREAMer help
 ```
 $ python3 STREAMer.py --help
 usage: STREAMer.py [-h] [--noHT] [--HT] [--Socket0] [--Socket1]
@@ -35,3 +36,16 @@ optional arguments:
   --FT                 Enable first touch
   --DAX_Path DAX_PATH  Path for DAX
 ```
+
+# STREAMer usage example
+In this example, we ask to run: from thread 0 up to all possible threads, without hyperthreading; using all of the cores in the node (the two sockets); enabling access to a CXL remote memory in a DAX mode (in this case, DDR4) and place the memory there (with PMDK, given a DAX path); while also spreading evenly the threads location in the hardware (Thread Affinity); and also spread evenly the memory allocation in the hardware (First Touch). A folder is created with all of the args as its name, and inside this folder, all of the runs are executed, and results are saved.
+```
+$ python3 STREAMer.py --noHT --Socket0Socket1 --CXLDAX --Spread --FT --DAX_Path /mnt/pmem2
+Hyperthreading is disabled
+Using both Socket0 and Socket1 cores
+Using DAX DDR4 memory with CXL
+Using spread thread affinity
+First touch is enabled
+Folder 'noHT_Socket0Socket1_CXLDAX_Spread_FT_/mnt/pmem2' has been created.
+```
+
