@@ -1,7 +1,7 @@
 # STREAMer
 STREAMer: Benchmarking remote volatile and non-volatile memory bandwidth
 
-'''
+```
 $ python3 STREAMer.py --help
 usage: STREAMer.py [-h] [--noHT] [--HT] [--Socket0] [--Socket1]
                    [--Socket0Socket1] [--Socket0DDR4] [--Socket1DDR4]
@@ -34,4 +34,4 @@ optional arguments:
   --noFT               Disable first touch
   --FT                 Enable first touch
   --DAX_Path DAX_PATH  Path for DAX
-'''
+```
