@@ -16,7 +16,7 @@ fi
 if [ -d "$input_dir" ]; then
    echo "Input directory: $input_dir"
    for dir in "$input_dir"/*/; do
-        if [ ! -z  "$(ls -A "$dir")" ] && ! $override; then
+        if [ -e "$dir/output_data.csv" ] && [ ! $override ]; then
           echo "Skipping $(basename "${dir}"). To enable overriding pass another agrument to the script: override"
            continue
         fi
