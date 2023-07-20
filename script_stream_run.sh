@@ -160,7 +160,7 @@ if [ -d "$input_dir" ]; then
         column -t -s "," "$tmp_csv"
         echo "Output data saved in $tmp_csv"
 	python3 plot_results.py "$input_dir/$dir"
-        done
+    done
 else
 echo "Input Directory not found: $input_dir"
 fi
