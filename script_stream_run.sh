@@ -1,15 +1,18 @@
 #!/bin/bash
 
-if [ $# -lt 2 ]; then
+if [ $# -lt 1 ]; then
    echo "You need to provide an input dir that contains formatted sub-directories to process"
 fi
 
 input_dir=$1
 override=false #on default, script jumps over subdirectories that already contain files
 
-if [$# -gt 2]; then
+if [ $# -gt 1 ]; then
    if [[ $2 == 'override' ]]; then
      override=true
+   fi
+fi
+
 if [ -d "$input_dir" ]; then
    echo "Input directory: $input_dir"
    for dir in "$input_dir"/*/; do
