@@ -155,7 +155,7 @@ if [ -d "$input_dir" ]; then
                 triad_rate=$(grep "Triad:" "$output_file" | awk '{print $2}')
 
                 echo "$thread,$copy_rate,$scale_rate,$add_rate,$triad_rate" >> "$tmp_csv"
-
+                python3 plot_results.py "$input_dir/$dir"
                 echo DONE $thread threads
         done
         column -t -s "," "$tmp_csv"
