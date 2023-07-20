@@ -1,15 +1,22 @@
 #!/bin/bash
 
-if [ $# -lt 1 ]; then
-   echo "You need to provide an input dir, that contains formatted sub-directories to process"
+if [ $# -lt 2 ]; then
+   echo "You need to provide an input dir that contains formatted sub-directories to process"
 fi
 
 input_dir=$1
+override=false #on default, script jumps over subdirectories that already contain files
 
+if [$# -gt 2]; then
+   if [[ $2 == 'override' ]]; then
+     override=true
 if [ -d "$input_dir" ]; then
    echo "Input directory: $input_dir"
    for dir in "$input_dir"/*/; do
-      
+        if [ ! -z  "$(ls -A "$dir")" ] && ! $override; then
+          echo "Skipping $(basename "${dir}"). To enable overriding pass another agrument to the script: override"
+           continue
+        fi
         dir=$(basename "${dir}")
 	echo "-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-"
 	echo "Working on $dir"
@@ -160,6 +167,9 @@ if [ -d "$input_dir" ]; then
         column -t -s "," "$tmp_csv"
         echo "Output data saved in $tmp_csv"
 	python3 plot_results.py "$input_dir/$dir"
+        git add $input_dir
+        git commit -m "Update results for backup"
+        git push origin main
     done
 else
 echo "Input Directory not found: $input_dir"
