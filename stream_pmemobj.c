@@ -270,6 +270,7 @@ int main(int argc, char* argv[])
         }
         else{
            strcpy(path,argv[1]);
+	   strcat(path,"/pool.obj");
         }
 
 	//const char path[] = "myobjpool.set";
