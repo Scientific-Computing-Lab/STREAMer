@@ -158,8 +158,8 @@ if args.Socket0DDR4 or args.Socket1DDR4 or args.CXLDDR4 or args.Socket0DDR5 or a
         folder_name += 'Socket0DDR5DAX_'
     elif args.Socket1DDR5DAX:
         folder_name += 'Socket1DDR5DAX_'
-    elif args.Socket1OptaneDAX:
-        folder_name += 'Socket1OptaneDAX_'
+    elif args.Socket0OptaneDAX:
+        folder_name += 'Socket0OptaneDAX_'
     elif args.Socket1OptaneDAX:
         folder_name += 'Socket1OptaneDAX_'
 
