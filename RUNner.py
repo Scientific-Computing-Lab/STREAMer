@@ -5,13 +5,13 @@ import subprocess
 exclusive_options = [
     ["--noHT", "--HT"],
     ["--Socket0", "--Socket1", "--Socket0Socket1"],
-    ["--Socket0DDR4", "--Socket1DDR4", "--CXLDDR4", "--Socket0DDR5", "--Socket1DDR5", "--CXLDAX", "--Socket0DDR4DAX", "--Socket1DDR4DAX", "--Socket0DDR5DAX", "--Socket1DDR5DAX"],
+    ["--Socket0DDR4", "--Socket1DDR4", "--CXLDDR4", "--Socket0DDR5", "--Socket1DDR5", "--CXLDAX", "--Socket0DDR4DAX", "--Socket1DDR4DAX", "--Socket0DDR5DAX", "--Socket1DDR5DAX", "--Socket0OptaneDAX", "--Socket1OptaneDAX"],
     ["--Close", "--Spread"],
     ["--noFT", "--FT"]
 ]
 
 # DAX options and flag
-dax_options = ["--CXLDAX", "--Socket0DDR4DAX", "--Socket1DDR4DAX", "--Socket0DDR5DAX", "--Socket1DDR5DAX"]
+dax_options = ["--CXLDAX", "--Socket0DDR4DAX", "--Socket1DDR4DAX", "--Socket0DDR5DAX", "--Socket1DDR5DAX", "--Socket0OptaneDAX", "--Socket1OptaneDAX"]
 dax_flag = "--DAX_Path"
 
 # DAX_Path options
@@ -30,4 +30,3 @@ for perm in permutations:
     else:
         command = ["python3", "STREAMer.py"] + list(perm)
         subprocess.run(command)
-
