@@ -27,6 +27,8 @@ memory_group.add_argument('--Socket0DDR4DAX', action='store_true', help='Use DAX
 memory_group.add_argument('--Socket1DDR4DAX', action='store_true', help='Use DAX DDR4 memory on Socket1')
 memory_group.add_argument('--Socket0DDR5DAX', action='store_true', help='Use DAX DDR5 memory on Socket0')
 memory_group.add_argument('--Socket1DDR5DAX', action='store_true', help='Use DAX DDR5 memory on Socket1')
+memory_group.add_argument('--Socket0OptaneDAX', action='store_true', help='Use DAX Optane memory on Socket0')
+memory_group.add_argument('--Socket1OptaneDAX', action='store_true', help='Use DAX Optane memory on Socket1')
 
 # Thread Affinity option
 affinity_group = parser.add_mutually_exclusive_group()
@@ -62,7 +64,7 @@ if not args.noHT and not args.HT:
 if not args.Socket0 and not args.Socket1 and not args.Socket0Socket1:
     args.Socket0 = True
 
-if not args.Socket0DDR4 and not args.Socket1DDR4 and not args.CXLDDR4 and not args.Socket0DDR5 and not args.Socket1DDR5 and not args.CXLDAX and not args.Socket0DDR4DAX and not args.Socket1DDR4DAX and not args.Socket0DDR5DAX and not args.Socket1DDR5DAX:
+if not args.Socket0DDR4 and not args.Socket1DDR4 and not args.CXLDDR4 and not args.Socket0DDR5 and not args.Socket1DDR5 and not args.CXLDAX and not args.Socket0DDR4DAX and not args.Socket1DDR4DAX and not args.Socket0DDR5DAX and not args.Socket1DDR5DAX and not args.Socket0OptaneDAX and not args.Socket1OptaneDAX:
     args.Socket0DDR4 = True
 
 if not args.Close and not args.Spread:
@@ -106,6 +108,10 @@ elif args.Socket0DDR5DAX:
     print('Using DAX DDR5 memory on Socket0')
 elif args.Socket1DDR5DAX:
     print('Using DAX DDR5 memory on Socket1')
+elif args.Socket0OptaneDAX:
+    print('Using DAX Optane memory on Socket0')
+elif args.Socket1OptaneDAX:
+    print('Using DAX Optane memory on Socket1')
 
 if args.Close:
     print('Using close thread affinity')
@@ -131,7 +137,7 @@ if args.Socket0 or args.Socket1 or args.Socket0Socket1:
     elif args.Socket0Socket1:
         folder_name += 'Socket0Socket1_'
 
-if args.Socket0DDR4 or args.Socket1DDR4 or args.CXLDDR4 or args.Socket0DDR5 or args.Socket1DDR5 or args.CXLDAX or args.Socket0DDR4DAX or args.Socket1DDR4DAX or args.Socket0DDR5DAX or args.Socket1DDR5DAX:
+if args.Socket0DDR4 or args.Socket1DDR4 or args.CXLDDR4 or args.Socket0DDR5 or args.Socket1DDR5 or args.CXLDAX or args.Socket0DDR4DAX or args.Socket1DDR4DAX or args.Socket0DDR5DAX or args.Socket1DDR5DAX or args.Socket0OptaneDAX or args.Socket1OptaneDAX:
     if args.Socket0DDR4:
         folder_name += 'Socket0DDR4_'
     elif args.Socket1DDR4:
@@ -152,6 +158,11 @@ if args.Socket0DDR4 or args.Socket1DDR4 or args.CXLDDR4 or args.Socket0DDR5 or a
         folder_name += 'Socket0DDR5DAX_'
     elif args.Socket1DDR5DAX:
         folder_name += 'Socket1DDR5DAX_'
+    elif args.Socket1OptaneDAX:
+        folder_name += 'Socket1OptaneDAX_'
+    elif args.Socket1OptaneDAX:
+        folder_name += 'Socket1OptaneDAX_'
+
 
 if args.Close or args.Spread:
     folder_name += 'Close_' if args.Close else 'Spread_'
@@ -171,4 +182,3 @@ if folder_name:
     print(f"Folder '{folder_name}' has been created.")
 else:
     print("No folder needs to be created.")
-
