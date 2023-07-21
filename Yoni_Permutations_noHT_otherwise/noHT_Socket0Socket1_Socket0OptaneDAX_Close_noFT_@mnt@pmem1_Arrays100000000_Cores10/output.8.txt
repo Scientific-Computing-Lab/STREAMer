@@ -14,8 +14,8 @@ Number of Threads requested = 8
 Number of Threads counted = 8
 -------------------------------------------------------------
 Your clock granularity/precision appears to be 1 microseconds.
-Each test below will take on the order of 3546230 microseconds.
-   (= 3546230 clock ticks)
+Each test below will take on the order of 3494564 microseconds.
+   (= 3494564 clock ticks)
 Increase the size of the arrays if this shows that
 you are not getting at least 20 clock ticks per test.
 -------------------------------------------------------------
@@ -24,10 +24,10 @@ For best results, please be sure you know the
 precision of your system timer.
 -------------------------------------------------------------
 Function    Best Rate MB/s  Avg time     Min time     Max time
-Copy:             540.9     2.984091     2.958100     3.008657
-Scale:            196.7     8.140495     8.136249     8.147578
-Add:              880.2     2.730092     2.726542     2.734432
-Triad:            467.9     5.165347     5.129845     5.185501
+Copy:             535.6     3.001312     2.987426     3.021011
+Scale:            197.0     8.131521     8.123494     8.140910
+Add:              879.7     2.733167     2.728188     2.736676
+Triad:            464.8     5.195330     5.163127     5.256093
 -------------------------------------------------------------
 Solution Validates: avg error less than 1.000000e-13 on all three arrays
 -------------------------------------------------------------
