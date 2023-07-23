@@ -3014,16 +3014,57 @@ Please review provided documentation for limitations.
 [10375.010500] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.273 msecs
 [10806.243703] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.493 msecs
 [10861.462334] perf: interrupt took too long (500038 > 497383), lowering kernel.perf_event_max_sample_rate to 1000
+[16817.329650] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.610 msecs
+[24032.147483] INFO: NMI handler (perf_event_nmi_handler) took too long to run: 2.664 msecs
+[24995.254258] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.822 msecs
+[25072.386852] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.835 msecs
+[25116.512973] perf: interrupt took too long (625943 > 625047), lowering kernel.perf_event_max_sample_rate to 1000
+[25192.548772] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.841 msecs
+[25334.822760] INFO: NMI handler (ghes_notify_nmi) took too long to run: 2.857 msecs
+[25343.122506] INFO: NMI handler (ghes_notify_nmi) took too long to run: 3.744 msecs
+[25627.770853] INFO: NMI handler (ghes_notify_nmi) took too long to run: 4.016 msecs
+[25735.150129] INFO: NMI handler (ghes_notify_nmi) took too long to run: 4.330 msecs
+[26507.483771] perf: interrupt took too long (785864 > 782428), lowering kernel.perf_event_max_sample_rate to 1000
+[32482.251349] INFO: NMI handler (perf_event_nmi_handler) took too long to run: 7.556 msecs
+[52381.972257] INFO: NMI handler (perf_event_nmi_handler) took too long to run: 7.587 msecs
+[72076.826515] usb 1-1.1: new high-speed USB device number 6 using xhci_hcd
+[72076.911371] usb 1-1.1: New USB device found, idVendor=17ef, idProduct=b000, bcdDevice= 0.00
+[72076.911380] usb 1-1.1: New USB device strings: Mfr=4, Product=5, SerialNumber=6
+[72076.911386] usb 1-1.1: Product: Keyboard/Mouse Function
+[72076.911391] usb 1-1.1: Manufacturer: Avocent
+[72076.911396] usb 1-1.1: SerialNumber: 20200430
+[72076.959239] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.0/input/input5
+[72077.025349] hid-generic 0003:17EF:B000.0004: input,hidraw0: USB HID v1.00 Keyboard [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input0
+[72077.026961] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.1/input/input6
+[72077.033899] hid-generic 0003:17EF:B000.0005: input,hidraw1: USB HID v1.00 Mouse [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input1
+[72077.034946] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.2/input/input7
+[72077.036888] hid-generic 0003:17EF:B000.0006: input,hidraw2: USB HID v1.00 Mouse [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input2
+[72947.866892] usb 1-1.1: USB disconnect, device number 6
+[72947.881193] hid-generic 0003:17EF:B000.0004: usb_submit_urb(ctrl) failed: -19
+[73559.973782] usb 1-1.1: new high-speed USB device number 7 using xhci_hcd
+[73560.058991] usb 1-1.1: New USB device found, idVendor=17ef, idProduct=b000, bcdDevice= 0.00
+[73560.059000] usb 1-1.1: New USB device strings: Mfr=4, Product=5, SerialNumber=6
+[73560.059006] usb 1-1.1: Product: Keyboard/Mouse Function
+[73560.059011] usb 1-1.1: Manufacturer: Avocent
+[73560.059016] usb 1-1.1: SerialNumber: 20200430
+[73560.078617] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.0/input/input8
+[73560.130387] hid-generic 0003:17EF:B000.0007: input,hidraw0: USB HID v1.00 Keyboard [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input0
+[73560.131537] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.1/input/input9
+[73560.131930] hid-generic 0003:17EF:B000.0008: input,hidraw1: USB HID v1.00 Mouse [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input1
+[73560.133005] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.2/input/input10
+[73560.133277] hid-generic 0003:17EF:B000.0009: input,hidraw2: USB HID v1.00 Mouse [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input2
+[74973.236720] usb 1-1.1: USB disconnect, device number 7
+[74973.251782] hid-generic 0003:17EF:B000.0007: usb_submit_urb(ctrl) failed: -19
 
 numactl Output:
 ===============
 available: 2 nodes (0-1)
 node 0 cpus: 0 1 2 3 4 5 6 7 8 9 20 21 22 23 24 25 26 27 28 29
 node 0 size: 15473 MB
-node 0 free: 14066 MB
+node 0 free: 14014 MB
 node 1 cpus: 10 11 12 13 14 15 16 17 18 19 30 31 32 33 34 35 36 37 38 39
 node 1 size: 16108 MB
-node 1 free: 12533 MB
+node 1 free: 12510 MB
 node distances:
 node   0   1 
   0:  10  21 
@@ -4222,10 +4263,11 @@ devtmpfs                  16G     0   16G   0% /dev
 tmpfs                     16G     0   16G   0% /dev/shm
 tmpfs                     16G   11M   16G   1% /run
 tmpfs                     16G     0   16G   0% /sys/fs/cgroup
-/dev/mapper/centos-root   50G   50G  151M 100% /
+/dev/mapper/centos-root   50G   50G  135M 100% /
 /dev/sda1               1014M  196M  819M  20% /boot
 /dev/mapper/centos-home  169G   41G  129G  24% /home
 tmpfs                    3.1G     0  3.1G   0% /run/user/1076
 /dev/pmem1               248G   11G  238G   5% /mnt/pmem1
 /dev/pmem0               248G   11G  238G   5% /mnt/pmem0
+tmpfs                    3.1G     0  3.1G   0% /run/user/0
 
