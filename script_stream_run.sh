@@ -16,7 +16,7 @@ fi
 if [ -d "$input_dir" ]; then
    echo "Input directory: $input_dir"
    for dir in "$input_dir"/*/; do
-        if [ -e "$dir/output_data.csv" ] && [ "$override" = false ]; then
+        if [ -e "$dir/graph_results.svg" ] && [ "$override" = false ]; then
           echo "Skipping $(basename "${dir}"). To enable overriding pass another agrument to the script: override"
            continue
         fi
@@ -109,6 +109,73 @@ if [ -d "$input_dir" ]; then
 
 	#execution
 	tmp_csv="$input_dir/$dir/output_data.csv"
+        log_file="$input_dir/$dir/log_config.txt"
+        
+	# Save lscpu information to the log file
+	echo "lscpu Information:" >> "$log_file"
+	echo "==================" >> "$log_file"
+	lscpu >> "$log_file"
+	echo "" >> "$log_file"  # Add an empty line for better readability
+	
+	# Save dmesg output to the log file
+	echo "dmesg Output:" >> "$log_file"
+	echo "=============" >> "$log_file"
+	dmesg >> "$log_file"
+	echo "" >> "$log_file"  # Add an empty line for better readability
+	
+	# Save numactl output to the log file
+	echo "numactl Output:" >> "$log_file"
+	echo "===============" >> "$log_file"
+	numactl -H >> "$log_file"
+	echo "" >> "$log_file"  # Add an empty line for better readability
+	
+	# Check if dmidecode is installed on the server
+	if command -v dmidecode &> /dev/null; then
+	  # Save dmidecode output to the log file
+	  echo "dmidecode Output:" >> "$log_file"
+	  echo "=================" >> "$log_file"
+	  dmidecode >> "$log_file"
+	  echo "" >> "$log_file"  # Add an empty line for better readability
+	else
+	  # Inform that dmidecode is not installed
+	  echo "dmidecode is not installed on the server." >> "$log_file"
+	  echo "" >> "$log_file"  # Add an empty line for better readability
+	fi
+	
+	# Check if ipmctl is installed on the server
+	if command -v ipmctl &> /dev/null; then
+	  # Save ipmctl output to the log file
+	  echo "ipmctl Output:" >> "$log_file"
+	  echo "==============" >> "$log_file"
+	  ipmctl show -memoryresources >> "$log_file"
+	  echo "" >> "$log_file"  # Add an empty line for better readability
+	fi
+
+        # Check if ndctl is installed on the server
+	if command -v ndctl &> /dev/null; then
+	  # Save ipmctl output to the log file
+  	  echo "ndctl Output:" >> "$log_file"
+	  echo "===============" >> "$log_file"
+          ndctl list -N >> "$log_file"
+          ndctl list -R >> "$log_file"
+	fi
+
+	# Save df output to the log file
+	echo "df Output:" >> "$log_file"
+	echo "==========" >> "$log_file"
+	df -h >> "$log_file"
+	echo "" >> "$log_file"  # Add an empty line for better readability
+	
+	# Check if OMP_DISPLAY_ENV is set to true
+	if [ "$OMP_DISPLAY_ENV" = "true" ]; then
+	  # Save OpenMP environment variables with their values to the log file with a title
+	  echo "OpenMP Environment Variables:" >> "$log_file"
+	  echo "============================" >> "$log_file"
+	  env | grep ^OMP >> "$log_file"
+	fi
+
+
+
 	echo "Number of Threads,Copy Rate (MB/s),Scale Rate (MB/s),Add Rate (MB/s),Triad Rate (MB/s)" > "$tmp_csv"
 	for thread in "${threads[@]}"; do
 
@@ -166,6 +233,9 @@ if [ -d "$input_dir" ]; then
 
                 echo "$thread,$copy_rate,$scale_rate,$add_rate,$triad_rate" >> "$tmp_csv"
                 echo DONE $thread threads
+                if [[ memory == *DAX* ]]; then
+                    rm -rf "$dax_path/pool.obj"
+                fi
         done
         column -t -s "," "$tmp_csv"
         echo "Output data saved in $tmp_csv"
