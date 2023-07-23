@@ -266,12 +266,20 @@ main()
     /* Get initial value for system clock. */
 #ifdef FIRSTTOUCH
 #pragma omp parallel for
+for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+      a[j] = 1.0;
+      b[j] = 2.0;
+      c[j] = 0.0;
+}
 #endif
+#ifndef FIRSTTOUCH
     for (j=0; j<STREAM_ARRAY_SIZE; j++) {
 	    a[j] = 1.0;
 	    b[j] = 2.0;
 	    c[j] = 0.0;
 	}
+
+#endif
 
     printf(HLINE);
 
