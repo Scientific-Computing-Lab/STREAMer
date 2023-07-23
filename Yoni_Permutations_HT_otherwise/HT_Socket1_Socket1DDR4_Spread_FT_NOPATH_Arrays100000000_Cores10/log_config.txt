@@ -3053,16 +3053,18 @@ Please review provided documentation for limitations.
 [73560.131930] hid-generic 0003:17EF:B000.0008: input,hidraw1: USB HID v1.00 Mouse [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input1
 [73560.133005] input: Avocent Keyboard/Mouse Function as /devices/pci0000:00/0000:00:14.0/usb1/1-1/1-1.1/1-1.1:1.2/input/input10
 [73560.133277] hid-generic 0003:17EF:B000.0009: input,hidraw2: USB HID v1.00 Mouse [Avocent Keyboard/Mouse Function] on usb-0000:00:14.0-1.1/input2
+[74973.236720] usb 1-1.1: USB disconnect, device number 7
+[74973.251782] hid-generic 0003:17EF:B000.0007: usb_submit_urb(ctrl) failed: -19
 
 numactl Output:
 ===============
 available: 2 nodes (0-1)
 node 0 cpus: 0 1 2 3 4 5 6 7 8 9 20 21 22 23 24 25 26 27 28 29
 node 0 size: 15473 MB
-node 0 free: 14030 MB
+node 0 free: 14007 MB
 node 1 cpus: 10 11 12 13 14 15 16 17 18 19 30 31 32 33 34 35 36 37 38 39
 node 1 size: 16108 MB
-node 1 free: 12511 MB
+node 1 free: 12507 MB
 node distances:
 node   0   1 
   0:  10  21 
@@ -4261,7 +4263,7 @@ devtmpfs                  16G     0   16G   0% /dev
 tmpfs                     16G     0   16G   0% /dev/shm
 tmpfs                     16G   11M   16G   1% /run
 tmpfs                     16G     0   16G   0% /sys/fs/cgroup
-/dev/mapper/centos-root   50G   50G  129M 100% /
+/dev/mapper/centos-root   50G   50G  131M 100% /
 /dev/sda1               1014M  196M  819M  20% /boot
 /dev/mapper/centos-home  169G   41G  129G  24% /home
 tmpfs                    3.1G     0  3.1G   0% /run/user/1076
