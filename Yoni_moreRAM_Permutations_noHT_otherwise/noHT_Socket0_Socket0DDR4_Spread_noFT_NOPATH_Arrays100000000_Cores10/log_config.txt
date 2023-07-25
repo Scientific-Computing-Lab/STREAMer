@@ -1,3 +1,4 @@
+gcc -fopenmp -O -DSTREAM_ARRAY_SIZE=100000000 -D_OPENMP  stream.c -o stream
 <command-line>:0:0: warning: "_OPENMP" redefined
 <built-in>: note: this is the location of the previous definition
 lscpu Information:
@@ -3100,16 +3101,28 @@ dmesg Output:
 [ 5435.887841] smpboot: CPU 37 is now offline
 [ 5435.905139] smpboot: CPU 38 is now offline
 [ 5435.926601] smpboot: CPU 39 is now offline
+[ 6434.215006] XFS (pmem1): DAX enabled. Warning: EXPERIMENTAL, use at your own risk
+[ 6434.215015] TECH PREVIEW: xfs direct access (dax) may not be fully supported.
+Please review provided documentation for limitations.
+[ 6434.215050] XFS (pmem1): Mounting V5 Filesystem
+[ 6434.222419] XFS (pmem1): Ending clean mount
+[ 6437.627989] XFS (pmem0): DAX enabled. Warning: EXPERIMENTAL, use at your own risk
+[ 6437.628051] XFS (pmem0): Mounting V5 Filesystem
+[ 6437.631965] XFS (pmem0): Ending clean mount
+[ 6557.990422] perf: interrupt took too long (2557 > 2500), lowering kernel.perf_event_max_sample_rate to 78000
+[ 6602.267786] perf: interrupt took too long (3330 > 3196), lowering kernel.perf_event_max_sample_rate to 60000
+[ 6640.982205] perf: interrupt took too long (4257 > 4162), lowering kernel.perf_event_max_sample_rate to 46000
+[ 7076.675543] perf: interrupt took too long (5413 > 5321), lowering kernel.perf_event_max_sample_rate to 36000
 
 numactl Output:
 ===============
 available: 2 nodes (0-1)
 node 0 cpus: 0 1 2 3 4 5 6 7 8 9
 node 0 size: 79992 MB
-node 0 free: 78037 MB
+node 0 free: 74234 MB
 node 1 cpus: 10 11 12 13 14 15 16 17 18 19
 node 1 size: 80604 MB
-node 1 free: 76252 MB
+node 1 free: 76251 MB
 node distances:
 node   0   1 
   0:  10  21 
@@ -4496,4 +4509,6 @@ tmpfs                     79G     0   79G   0% /sys/fs/cgroup
 /dev/sda1               1014M  196M  819M  20% /boot
 /dev/mapper/centos-home  169G   41G  129G  24% /home
 tmpfs                     16G     0   16G   0% /run/user/1076
+/dev/pmem1               248G   11G  238G   5% /mnt/pmem1
+/dev/pmem0               248G   12G  237G   5% /mnt/pmem0
 
